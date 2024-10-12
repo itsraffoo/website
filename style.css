@@ -17,7 +17,7 @@ body, html {
 }
 
 .background {
-    background: url('images/background1.gif') no-repeat center center fixed; /* Usa un URL diretto come test */
+    background: url('https://github.com/itsraffoo/website/blob/main/background1.gif') no-repeat center center fixed; /* Usa un URL diretto come test */
     background-size: cover;
     filter: blur(10px);
     position: absolute;
