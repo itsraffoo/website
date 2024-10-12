@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ProggyClean';
-    src: url('fonts/ProggyClean.ttf') format('truetype');
+    src: url('https://raw.githubusercontent.com/itsraffoo/website/refs/heads/main/ProggyClean.ttf') format('truetype');
 }
 
 * {
