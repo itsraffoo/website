@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'ProggyClean';
-    src: url('https://raw.githubusercontent.com/itsraffoo/website/refs/heads/main/ProggyClean.ttf') format('truetype');
+    src: url('fonts/ProggyClean.ttf') format('truetype');
 }
 
 * {
@@ -12,18 +12,28 @@
 body, html {
     height: 100%;
     font-family: 'ProggyClean', monospace;
-    overflow: hidden; /* Rimuove le barre di scorrimento */
-    background-color: #000; /* Colore di sfondo generale */
+    overflow: hidden;
+    background-color: #000;
+    scroll-behavior: smooth; /* Scroll fluido */
+}
+
+#welcome {
+    height: 80px; /* Imposta l'altezza desiderata */
+    overflow: hidden; /* Nascondi eventuali contenuti in eccesso */
+    transition: opacity 0.3s ease; /* Transizione per l'opacità */
 }
 
 .background {
-    background: url('https://raw.githubusercontent.com/itsraffoo/website/refs/heads/main/background1.gif') no-repeat center center fixed; /* Usa un URL diretto come test */
+    background: url('images/background3.gif') no-repeat center center fixed;
     background-size: cover;
-    filter: blur(10px);
+    filter: blur(6px) brightness(0.7); /* Ridotto il blur per maggiore chiarezza */
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 1;
+    transform: translateZ(0); /* Ottimizzazione per il rendering */
+    will-change: transform;
+    transition: filter 0.3s ease-in-out; /* Transizione per l'effetto parallax */
 }
 
 #preloader {
@@ -32,7 +42,7 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.85);
     z-index: 9999;
     display: flex;
     justify-content: center;
@@ -55,87 +65,103 @@ body, html {
 
 .content {
     text-align: center;
-    color: #fff;
+    color: #ffffff;
     position: relative;
-    z-index: 1;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    height: 100vh; /* Centra verticalmente */
+    height: 100vh;
 }
 
 h1 {
     font-size: 4em;
     margin: 20px 0;
-    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7); /* Ombra per il testo */
-    transition: color 0.3s ease; /* Transizione per il colore */
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+    transition: color 0.3s ease;
+    animation: fadeIn 2s ease-in-out; /* Aggiunta di animazione */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 .social-icons {
     font-size: 2.5em;
     margin: 20px 0;
-    transition: transform 0.3s; /* Transizione per il ridimensionamento */
+    display: flex;
+    gap: 20px;
 }
 
 .social-icons a {
-    color: #8a2be2; /* Colore delle icone social */
-    margin: 0 15px; /* Spaziatura tra le icone */
-    transition: transform 0.3s; /* Transizione per l'effetto hover */
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease; /* Rimosso box-shadow dalle transizioni */
+    color: #8a2be2;
+    margin: 0 15px;
+    border-radius: 50%;
+    padding: 10px;
 }
 
 .social-icons a:hover {
-    transform: scale(1.2); /* Effetto di ingrandimento al passaggio del mouse */
+    transform: scale(1.15); /* Ingrandimento */
+    color: #ffffff; /* Cambia colore a bianco */
 }
 
 .section {
-    margin: 20px auto;
-    padding: 15px; /* Ridotto il padding */
-    background-color: rgba(0, 0, 0, 0.7);
+    margin: 20px auto; /* Margine automatico per centrare */
+    padding: 15px; /* Padding uniforme */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
-    width: 70%; /* Ridotto per essere più sottile */
-    max-width: 600px; /* Massima larghezza per il box */
+    width: 70%; /* Larghezza uniforme */
+    max-width: 600px; /* Massima larghezza */
     overflow: hidden;
     transition: max-height 0.5s ease-out, padding 0.5s ease-out; /* Aggiunto effetto di transizione */
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Ombra per le sezioni */
     font-size: 18px;
+    display: flex; /* Flexbox per un layout interno coerente */
+    flex-direction: column; /* Orientamento verticale */
+    align-items: center; /* Allineamento centrale degli elementi */
 }
 
 h2 {
     cursor: pointer;
     margin-bottom: 10px;
-    color: #8a2be2; /* Colore del titolo delle sezioni */
-    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7); /* Ombra per il titolo */
+    color: #8a2be2;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    transition: transform 0.3s ease-in-out, color 0.3s ease;
+}
+
+h2:hover {
+    color: #ffffff;
+    transform: scale(1.1);
 }
 
 .description {
-    max-height: 0; /* Nasconde la descrizione di default */
-    overflow: hidden; /* Assicura che non venga visualizzato alcun contenuto */
-    transition: max-height 0.5s ease-out; /* Transizione per l'espansione */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
 }
 
 .section.open .description {
-    max-height: 100px; /* Altezza massima quando aperto, modifica secondo il contenuto */
+    max-height: 300px; /* Altezza adattata per contenuti più ampi */
 }
 
 .section.active {
-    max-height: 500px; /* Imposta un'altezza massima */
-    opacity: 1; /* Rendi visibile */
-}
-
-.section {
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Ombra del box */
+    background-color: rgba(255, 255, 255, 0.1); /* Colore di sfondo attivo */
 }
 
 footer {
-    position: fixed; /* Fissa il footer in basso alla pagina */
-    bottom: 0; /* Posizione in basso */
-    left: 0; /* Allinea a sinistra */
-    width: 100%; /* Occupa tutta la larghezza */
-    background-color: rgba(0, 0, 0, 0.7); /* Sfondo semi-trasparente */
-    color: white; /* Colore del testo */
-    text-align: center; /* Centra il testo */
-    padding: 10px; /* Spaziatura interna */
-    font-size: 14px; /* Dimensione del testo */
-    z-index: 10; /* Assicura che sia sopra altri contenuti */
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0);
+    color: white;
+    text-align: center;
+    padding: 10px;
+    font-size: 14px;
+    z-index: 10;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0); /* Ombra per il footer */
 }
