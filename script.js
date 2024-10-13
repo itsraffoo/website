@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'Bienvenue!',         // Francese
         '¡Bienvenido!',       // Spagnolo
         'Willkommen!',        // Tedesco
-        'Benvingut!',         // Catalano
         'Velkommen!',         // Danese
         'Welkom!',            // Olandese
         'Bem-vindo!',         // Portoghese
