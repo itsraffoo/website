@@ -28,9 +28,6 @@ document.addEventListener('DOMContentLoaded', function() {
         'Willkommen!',        // Tedesco
         'Benvingut!',         // Catalano
         'Velkommen!',         // Danese
-        '환영합니다!',         // Coreano (Hwan-yeong-hamnida)
-        '欢迎!',              // Cinese (Semplificato, Huānyíng)
-        'Добро пожаловать!',   // Russo (Dobro pozhalovat!)
         'Welkom!',            // Olandese
         'Bem-vindo!',         // Portoghese
         'Tervetuloa!',       // Finlandese
