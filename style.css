@@ -18,7 +18,7 @@ body, html {
 }
 
 #welcome {
-    height: 80px; /* Imposta l'altezza desiderata */
+    height: 40px; /* Imposta l'altezza desiderata */
     overflow: hidden; /* Nascondi eventuali contenuti in eccesso */
     transition: opacity 0.3s ease; /* Transizione per l'opacità */
 }
