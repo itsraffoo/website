@@ -152,6 +152,21 @@ h2:hover {
     background-color: rgba(255, 255, 255, 0.1); /* Colore di sfondo attivo */
 }
 
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px; /* Margine per distanziare dal contenuto successivo */
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #6f00ff;
+}
+
 footer {
     position: fixed;
     bottom: 0;
